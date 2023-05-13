@@ -77,7 +77,7 @@ public class Radix {
     // Main method
     public static void main(String[] args)
     {
-        int arr1[] = {223,453, 235,256,887};
+        int arr1[] = {275, 87, 426, 61, 409, 170, 677, 503};
         float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
         int m = arr1.length;
         int n = arr2.length;
