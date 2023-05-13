@@ -64,8 +64,8 @@ public class Radix {
         }
     }
  
-    //Print array unsorted
-    static void print(int arr[], int n)
+    //Print array unsorted 
+    static void print(float arr[], int n)
     {
         System.out.print("\nSorted array: ");
         for (int i = 0; i < n; i++)
@@ -73,11 +73,26 @@ public class Radix {
         System.out.print("\n");
     }
  
+    //change array from float to integer 
+    static void floattoint(float arr2[], int n, int arri[])
+    {
+        
+        for(int i=0; i<n; i++) 
+        {
+            arr2[i] = arr2[i]*10;
+            arri[i] = (int)arr2[i];
+        }
+    }
+ 
     // Main method
     public static void main(String[] args)
     {
         int arr1[] = {275, 87, 426, 61, 409, 170, 677, 503};
         float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
+        float arr3[] = {275.0f};
+        float arr4[] = {275.0f, 87.1f};
+        float arr5[] = {275.0f, 87.1f,426.2f};
+        float arr6[] = {275.0f,87.1f,426.2f,61.3f};
         int m = arr1.length;
         int n = arr2.length;
         
@@ -101,16 +116,15 @@ public class Radix {
         System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < n; i++)
             System.out.print(arr2[i] + " ");
-            
+        
         int arri[] = new int[n];
-        for(int i=0; i<n; i++) {
-            arr2[i] = arr2[i]*10;
-            arri[i] = (int)arr2[i];
-        }
+        floattoint(arr2,n,arri);
+           
         
         System.out.print("\n" );
         radixsort(arri, n);
-   
+        
+        //int to float
         float arrf[] = new float[n];
         for(int i=0; i<n; i++) {
             arrf[i] = (float)arri[i];
@@ -118,8 +132,7 @@ public class Radix {
         }
         System.out.print("\n" );
         
-        System.out.print("\nSorted array: " );
-        for (int i = 0; i < n; i++)
-            System.out.print(arrf[i] + " ");
+        print (arrf,n);
     }
 }
+
