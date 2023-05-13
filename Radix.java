@@ -82,8 +82,8 @@ public class Radix {
         int m = arr1.length;
         int n = arr2.length;
         
-        System.out.print("Integer for Radix Sort " );
-        System.out.print("\nUnsorted array: " );
+        System.out.print("(Integer for Radix Sort) " );
+        System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < m; i++)
             System.out.print(arr1[i] + " ");
         System.out.print("\n" );
@@ -94,10 +94,11 @@ public class Radix {
         System.out.print("\nSorted array: " );
         for (int i = 0; i < m; i++)
             System.out.print(arr1[i] + " ");
+            System.out.print("\n\n----------------------------------------------------------------" );
         
         
-        System.out.print("\n\nFloating values for Radix Sort " );
-        System.out.print("\nUnsorted array: " );
+        System.out.print("\n\n(Floating values for Radix Sort) " );
+        System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < n; i++)
             System.out.print(arr2[i] + " ");
             
