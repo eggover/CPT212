@@ -59,7 +59,7 @@ public class Radix {
         // exp is 10^i where i is current digit number
         for (int exp = 1; m / exp > 0; exp *= 10 )
         {
-            System.out.print("\nSorting at place value " + exp + ": ");
+            System.out.print("Pass at place value" + exp + ": ");
             countSort(arr, n, exp);
         }
     }
