@@ -3,8 +3,7 @@ import java.util.*;
  
 public class Radix {
  
-    //Find maximum value of array
-    
+    // Search maxi value of array
     static int getMax(int arr[], int n)
     {
         int mx = arr[0];
@@ -23,7 +22,7 @@ public class Radix {
         int count[] = new int[10];
         Arrays.fill(count, 0);
  
-        // Store count of occurrences in count[]
+        // Store count in count[]
         for (i = 0; i < n; i++)
             count[(arr[i] / exp) % 10]++;
  
@@ -82,6 +81,7 @@ public class Radix {
         int m = arr1.length;
         int n = arr2.length;
         
+        // Output for integer radix sort part
         System.out.print("(Integer for Radix Sort) " );
         System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < m; i++)
@@ -96,7 +96,7 @@ public class Radix {
             System.out.print(arr1[i] + " ");
             System.out.print("\n\n----------------------------------------------------------------" );
         
-        
+        // Output for floating value radix sort part
         System.out.print("\n\n(Floating values for Radix Sort) " );
         System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < n; i++)
