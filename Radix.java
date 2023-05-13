@@ -3,7 +3,8 @@ import java.util.*;
  
 public class Radix {
  
-    // A utility function to get maximum value in arr[]
+    //Find maximum value of array
+    
     static int getMax(int arr[], int n)
     {
         int mx = arr[0];
@@ -59,7 +60,7 @@ public class Radix {
         // exp is 10^i where i is current digit number
         for (int exp = 1; m / exp > 0; exp *= 10 )
         {
-            System.out.print( "\nPass : ");
+            System.out.print("Pass at place value" + exp + ": ");
             countSort(arr, n, exp);
         }
     }
@@ -76,8 +77,8 @@ public class Radix {
     // Main method
     public static void main(String[] args)
     {
-        int arr1[] = {275,87,426,61,409,170,677,503 };
-        float arr2[] = { 275f,87f,426f,61f,409f,170f,677f,503f };
+        int arr1[] = {223,453, 235,256,887};
+        float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
         int m = arr1.length;
         int n = arr2.length;
         
