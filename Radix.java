@@ -3,7 +3,8 @@ import java.util.*;
  
 public class Radix {
  
-    // A utility function to get maximum value in arr[]
+    //Find maximum value of array
+    
     static int getMax(int arr[], int n)
     {
         int mx = arr[0];
