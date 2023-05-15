@@ -3,7 +3,8 @@ import java.util.*;
  
 public class Radix {
  
-    // Search maxi value of array
+    // Find maximum value in the arr[]
+    // n: array size
     static int getMax(int arr[], int n)
     {
         int mx = arr[0];
@@ -13,8 +14,7 @@ public class Radix {
         return mx;
     }
  
-    // A function to do counting sort of arr[] according to
-    // the digit represented by exp.
+    //countSort to sort for each place value
     static void countSort(int arr[], int n, int exp)
     {
         int output[] = new int[n]; // output array
@@ -26,20 +26,16 @@ public class Radix {
         for (i = 0; i < n; i++)
             count[(arr[i] / exp) % 10]++;
  
-        // Change count[i] so that count[i] now contains
-        // actual position of this digit in output[]
         for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
- 
-        // Build the output array
+
         for (i = n - 1; i >= 0; i--) {
             output[count[(arr[i] / exp) % 10] - 1] = arr[i];
             count[(arr[i] / exp) % 10]--;
         }
  
-        // Copy the output array to arr[], so that arr[] now
-        // contains sorted numbers according to current
-        // digit
+        // Copy the output array to arr[]
+        //arr[] now contains sorted numbers according to current digit
         for (i = 0; i < n; i++)
             arr[i] = output[i];
             
@@ -47,16 +43,15 @@ public class Radix {
             System.out.print(arr[i]+" ");
     }
  
-    // The main function to that sorts arr[] of
-    // size n using Radix Sort
+    // The main function to that sorts arr[]
+    // n : array size
     static void radixsort(int arr[], int n)
     {
-        // Find the maximum number to know number of digits
+        // Find maximum value in an array
         int m = getMax(arr, n);
  
-        // Do counting sort for every digit. Note that
-        // instead of passing digit number, exp is passed.
-        // exp is 10^i where i is current digit number
+        // Do counting sort for every digit
+        // exp: place value
         for (int exp = 1; m / exp > 0; exp *= 10 )
         {
             System.out.print("\nPass at place value " + exp + ": ");
@@ -65,6 +60,7 @@ public class Radix {
     }
  
     //Print array unsorted 
+    // n: array size
     static void print(float arr[], int n)
     {
         System.out.print("\nSorted array: ");
@@ -74,6 +70,7 @@ public class Radix {
     }
  
     //change array from float to integer 
+    //arr2: array 2, n: array size, arri: array in integer
     static void floattoint(float arr2[], int n, int arri[])
     {
         
@@ -84,19 +81,40 @@ public class Radix {
         }
     }
  
+    //change array from integer to float
+    //arri: array in integer, n: array size, arri: array in integer
+    static void inttofloat(int arri[], int n, float arrf[])
+    { 
+        for(int i=0; i<n; i++)  
+        {
+             arrf[i] = (float)arri[i];
+             arrf[i] = arrf[i]/10;
+        }
+        System.out.print("\n" );
+    }
+ 
+    //print unsorted array float
+    static void printUnsort(float arr[], int n)
+    {
+        System.out.print("\n\nUnsorted array: " );
+        for (int i = 0; i < n; i++)
+            System.out.print(arr[i] + " ");
+    }
+    
+    //print sorted array float
+    static void printSort(float arr[], int n)
+    {
+        System.out.print("\n\nSorted array: " );
+        for (int i = 0; i < n; i++)
+            System.out.print(arr[i] + " ");
+    }
+ 
     // Main method
     public static void main(String[] args)
-    {
+    {              
+        // Radix sort integer starts-------------------------------------
         int arr1[] = {275, 87, 426, 61, 409, 170, 677, 503};
-        float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
-        float arr3[] = {275.0f};
-        float arr4[] = {275.0f, 87.1f};
-        float arr5[] = {275.0f, 87.1f,426.2f};
-        float arr6[] = {275.0f,87.1f,426.2f,61.3f};
         int m = arr1.length;
-        int n = arr2.length;
-        
-        // Output for integer radix sort part
         System.out.print("(Integer for Radix Sort) " );
         System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < m; i++)
@@ -110,29 +128,30 @@ public class Radix {
         for (int i = 0; i < m; i++)
             System.out.print(arr1[i] + " ");
             System.out.print("\n\n----------------------------------------------------------------" );
+        // Radix sort integer starts-------------------------------------
         
-        // Output for floating value radix sort part
+        // Radix sort float starts-------------------------------------
+        float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
+        float arr3[] = {275.0f};
+        float arr4[] = {275.0f, 87.1f};
+        float arr5[] = {275.0f, 87.1f,426.2f};
+        float arr6[] = {275.0f,87.1f,426.2f,61.3f}; 
+        int n = arr2.length;
         System.out.print("\n\n(Floating values for Radix Sort) " );
-        System.out.print("\n\nUnsorted array: " );
-        for (int i = 0; i < n; i++)
-            System.out.print(arr2[i] + " ");
+     
+        printUnsort(arr2, n);
         
         int arri[] = new int[n];
-        floattoint(arr2,n,arri);
+        floattoint(arr2,n,arri);//change array to integer
            
-        
         System.out.print("\n" );
         radixsort(arri, n);
         
         //int to float
         float arrf[] = new float[n];
-        for(int i=0; i<n; i++) {
-            arrf[i] = (float)arri[i];
-            arrf[i] = arrf[i]/10;
-        }
-        System.out.print("\n" );
+        inttofloat(arri,n,arrf);
         
-        print (arrf,n);
+        printSort (arrf,n);
     }
 }
 
