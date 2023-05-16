@@ -48,7 +48,7 @@ public class Radix {
  
     //The main function to that sorts arr[]
     //n : array size
-    static void radixsort(int arr[], int n,int count)
+    static void radixsort(int arr[], int n,int counter)
     {
         //count = 1;
         //Find maximum value in an array
@@ -59,9 +59,9 @@ public class Radix {
         for (int exp = 1; m / exp > 0; exp *= 10 )
         {
             System.out.print("\nPass at place value " + exp + ": ");
-            count =1;
-            countSort(arr, n, exp,count);
-            count ++;
+            counter =1;
+            countSort(arr, n, exp,counter);
+            counter ++;
         }
     }
  
@@ -78,26 +78,26 @@ public class Radix {
  
     //Change array from float to integer 
     //arr2: array 2, n: array size, arri: array in integer
-    static void floattoint(float arr2[], int n, int arri[], int count)
+    static void floattoint(float arr2[], int n, int arri[], int counter)
     {
         
         for(int i=0; i<n; i++) 
         {
             arr2[i] = arr2[i]*10;
             arri[i] = (int)arr2[i];
-            count +=7;
+            counter +=7;
         }
     }
  
     //Change array from integer to float
     //arri: array in integer, n: array size, arri: array in integer
-    static void inttofloat(int arri[], int n, float arrf[], int count)
+    static void inttofloat(int arri[], int n, float arrf[], int counter)
     { 
         for(int i=0; i<n; i++)  
         {
              arrf[i] = (float)arri[i];
              arrf[i] = arrf[i]/10;
-             count += 7;
+             counter += 7;
         }
         System.out.print("\n" );
     }
@@ -126,7 +126,6 @@ public class Radix {
         int arr1[] = {275, 87, 426, 61, 409, 170, 677, 503};
         int m = arr1.length;
         int counter=1;
-        int count=1;
         System.out.print("(Integer for Radix Sort) " );
         System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < m; i++)
@@ -135,7 +134,7 @@ public class Radix {
         
         //Calling function
         
-        radixsort(arr1,m,count);
+        radixsort(arr1,m,counter);
         System.out.print("\n" );
         
         //Print output sorted int
@@ -159,14 +158,14 @@ public class Radix {
         
         //Change array to integer
         int arri[] = new int[n];
-        floattoint(arr2,n,arri,count);
+        floattoint(arr2,n,arri,counter);
            
         System.out.print("\n" );
         radixsort(arri, n, counter); //Calling function
         
         //Change int to float
         float arrf[] = new float[n];
-        inttofloat(arri,n,arrf,count);
+        inttofloat(arri,n,arrf,counter);
         
         //Calling function for print output sorted float
         printSort (arrf,n,counter);
