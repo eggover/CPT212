@@ -7,15 +7,16 @@ public class Radix {
  
     // Find maximum value in the arr[]
     // n: array size
-    static int getMax(int arr[], int n)
+    static int getMax(int arr[], int n,int counter)
     {
         int mx = arr[0];
         for (int i = 1; i < n; i++)
             if (arr[i] > mx)
                 mx = arr[i];
+            counter +=7;
         return mx;
+    
     }
- 
     //countSort function to sort for each place value
     static void countSort(int arr[], int n, int exp, int counter)
     {
@@ -31,16 +32,19 @@ public class Radix {
  
         for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
+            counter += 6;
 
         for (i = n - 1; i >= 0; i--) {
             output[count[(arr[i] / exp) % 10] - 1] = arr[i];
             count[(arr[i] / exp) % 10]--;
+            counter +=10;
         }
  
         //Copy the output array to arr[]
         //arr[] now contains sorted numbers according to current digit
         for (i = 0; i < n; i++)
             arr[i] = output[i];
+            counter +=1;
             
         for (i = 0; i < n; i++)
             System.out.print(arr[i]+" ");
@@ -52,7 +56,7 @@ public class Radix {
     {
         //count = 1;
         //Find maximum value in an array
-        int m = getMax(arr, n);
+        int m = getMax(arr, n,counter);
  
         //Do counting sort for every digit
         //exp: place value
@@ -111,12 +115,11 @@ public class Radix {
     }
     
     //Print sorted array float
-    static void printSort(float arr[], int n, int counter)
+    static void printSort(float arr[], int n)
     {
         System.out.print("\n\nSorted array: " );
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
-            counter += 3;
     }
  
     //Main code
@@ -168,6 +171,6 @@ public class Radix {
         inttofloat(arri,n,arrf,counter);
         
         //Calling function for print output sorted float
-        printSort (arrf,n,counter);
+        printSort (arrf,n);
     }
 }
