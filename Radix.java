@@ -12,9 +12,11 @@ public class Radix {
         int counter = 0;
         int mx = arr[0];
         for (int i = 1; i < n; i++)
+        {
             if (arr[i] > mx)
                 mx = arr[i];
             counter +=7;
+        }
         a[0]=counter;
         a[1]=mx;
     
