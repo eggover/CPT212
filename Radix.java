@@ -9,13 +9,19 @@ public class Radix {
     // n: array size
     static void getMax(int arr[], int n, int a[])
     {
-        int counter = 0;
         int mx = arr[0];
+        int counter = a[0]+1;
+
         for (int i = 1; i < n; i++)
         {
             if (arr[i] > mx)
+            {
                 mx = arr[i];
-            counter +=7;
+                counter +=2;
+            }
+            
+            else
+                counter+=2;
         }
         a[0]=counter;
         a[1]=mx;
