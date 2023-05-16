@@ -17,7 +17,7 @@ public class Radix {
     }
  
     //countSort function to sort for each place value
-    static void countSort(int arr[], int n, int exp)
+    static void countSort(int arr[], int n, int exp, int counter)
     {
         int output[] = new int[n]; //Output array
         int i;
@@ -27,6 +27,7 @@ public class Radix {
         //Store count in count[]
         for (i = 0; i < n; i++)
             count[(arr[i] / exp) % 10]++;
+            counter += 6;
  
         for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
@@ -47,8 +48,9 @@ public class Radix {
  
     //The main function to that sorts arr[]
     //n : array size
-    static void radixsort(int arr[], int n)
+    static void radixsort(int arr[], int n,int count)
     {
+        //count = 1;
         //Find maximum value in an array
         int m = getMax(arr, n);
  
@@ -57,40 +59,45 @@ public class Radix {
         for (int exp = 1; m / exp > 0; exp *= 10 )
         {
             System.out.print("\nPass at place value " + exp + ": ");
-            countSort(arr, n, exp);
+            count =1;
+            countSort(arr, n, exp,count);
+            count ++;
         }
     }
  
-    //Print array unsorted 
+    //Print array sorted 
     //n: array size
-    static void print(float arr[], int n)
+    static void print(float arr[], int n,int counter)
     {
         System.out.print("\nSorted array: ");
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
         System.out.print("\n");
+        counter += 3;
     }
  
     //Change array from float to integer 
     //arr2: array 2, n: array size, arri: array in integer
-    static void floattoint(float arr2[], int n, int arri[])
+    static void floattoint(float arr2[], int n, int arri[], int count)
     {
         
         for(int i=0; i<n; i++) 
         {
             arr2[i] = arr2[i]*10;
             arri[i] = (int)arr2[i];
+            count +=7;
         }
     }
  
     //Change array from integer to float
     //arri: array in integer, n: array size, arri: array in integer
-    static void inttofloat(int arri[], int n, float arrf[])
+    static void inttofloat(int arri[], int n, float arrf[], int count)
     { 
         for(int i=0; i<n; i++)  
         {
              arrf[i] = (float)arri[i];
              arrf[i] = arrf[i]/10;
+             count += 7;
         }
         System.out.print("\n" );
     }
@@ -104,11 +111,12 @@ public class Radix {
     }
     
     //Print sorted array float
-    static void printSort(float arr[], int n)
+    static void printSort(float arr[], int n, int counter)
     {
         System.out.print("\n\nSorted array: " );
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
+            counter += 3;
     }
  
     //Main code
@@ -117,6 +125,8 @@ public class Radix {
         //Radix sort integer start-------------------------------------
         int arr1[] = {275, 87, 426, 61, 409, 170, 677, 503};
         int m = arr1.length;
+        int counter=1;
+        int count=1;
         System.out.print("(Integer for Radix Sort) " );
         System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < m; i++)
@@ -124,7 +134,8 @@ public class Radix {
         System.out.print("\n" );
         
         //Calling function
-        radixsort(arr1,m);
+        
+        radixsort(arr1,m,count);
         System.out.print("\n" );
         
         //Print output sorted int
@@ -148,17 +159,16 @@ public class Radix {
         
         //Change array to integer
         int arri[] = new int[n];
-        floattoint(arr2,n,arri);
+        floattoint(arr2,n,arri,count);
            
         System.out.print("\n" );
-        radixsort(arri, n); //Calling function
+        radixsort(arri, n, counter); //Calling function
         
         //Change int to float
         float arrf[] = new float[n];
-        inttofloat(arri,n,arrf);
+        inttofloat(arri,n,arrf,count);
         
         //Calling function for print output sorted float
-        printSort (arrf,n);
+        printSort (arrf,n,counter);
     }
 }
-
