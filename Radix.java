@@ -58,10 +58,10 @@ public class Radix {
     {
         //count = 1;
         //Find maximum value in an array
-        int a[] = new int[2]
+        int a[] = new int[2];
         Arrays.fill(a,0);
         getMax(arr, n, a);
-        int m = a[1]
+        int m = a[1];
         counter = a[0];
         System.out.print(counter);
  
@@ -159,11 +159,11 @@ public class Radix {
         float arr4[] = {275.0f, 87.1f};
         float arr5[] = {275.0f, 87.1f,426.2f};
         float arr6[] = {275.0f,87.1f,426.2f,61.3f}; 
-        ;
+        
         System.out.print("\n\n(Floating values for Radix Sort) " );
      
         float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
-        int n = arr2.length
+        int n = arr2.length;
         printUnsort(arr2, n);//Calling function for print output unsorted float
         
         int arri[] = new int[n];// new array for the array in integer
