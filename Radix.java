@@ -148,7 +148,6 @@ public class Radix {
         //Radix sort integer stop-------------------------------------
         
         //Radix sort float starts-------------------------------------
-        float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
         float arr3[] = {275.0f};
         float arr4[] = {275.0f, 87.1f};
         float arr5[] = {275.0f, 87.1f,426.2f};
@@ -156,19 +155,17 @@ public class Radix {
         int n = arr2.length;
         System.out.print("\n\n(Floating values for Radix Sort) " );
      
-        //Calling function for print output unsorted float
-        printUnsort(arr2, n);
+        float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
+        printUnsort(arr2, n);//Calling function for print output unsorted float
         
-        //Change array to integer
-        int arri[] = new int[n];
-        floattoint(arr2,n,arri,counter);
+        int arri[] = new int[n];// new array for the array in integer
+        floattoint(arr2,n,arri,counter); //Change array from float to integer
            
         System.out.print("\n" );
-        radixsort(arri, n, counter); //Calling function
+        radixsort(arri, n, counter); //Sort function
         
-        //Change int to float
-        float arrf[] = new float[n];
-        inttofloat(arri,n,arrf,counter);
+        float arrf[] = new float[n];// new array for the array in float
+        inttofloat(arri,n,arrf,counter);//Change array from int to float
         
         //Calling function for print output sorted float
         printSort (arrf,n);
