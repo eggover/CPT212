@@ -4,8 +4,7 @@ import java.util.*;
  
 //Class Radix
 public class Radix {
-    
- //------------------------------------------------done-----------------------------------------------------------------------
+
     // Find maximum value in the arr[]
     // n: array size
     static void getMax(int arr[], int n, int a[])
@@ -66,7 +65,7 @@ public class Radix {
      
         return counter;
     }
-    //------------------------------------------------done-----------------------------------------------------------------------
+    
     //The main function to that sorts arr[]
     //n : array size
     static int radixsort(int arr[], int n,int counter)
