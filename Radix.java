@@ -278,7 +278,7 @@ public class Radix {
         //Radix sort array(3 input) ends----------------------------------------
         
         //Radix sort array(4 input) starts--------------------------------------
-        System.out.print("\n\n(Integer values for 3 input)" );
+        System.out.print("\n\n(Integer values for 4 input)" );
         
         int arry4[] = {275,87,426,61};
         int m4 = arry4.length;
