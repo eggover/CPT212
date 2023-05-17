@@ -145,7 +145,9 @@ public class Radix {
         int m = arr1.length;
         int counter=1;
      
-        System.out.print("(Integer for Radix Sort) " );
+        System.out.print("\nSTART" );
+        System.out.print("\n\n----------------------------------------------------------------" );
+        System.out.print("\n\n(Integer for Radix Sort) " );
         System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < m; i++)
             System.out.print(arr1[i] + " ");
@@ -164,6 +166,10 @@ public class Radix {
         System.out.print("\n\n----------------------------------------------------------------" );
         //Radix sort integer stop-------------------------------------
         
+        
+//------------------------------------------------------------------------------------------------------------------------------------- 
+
+
         //Radix sort float starts-------------------------------------
         System.out.print("\n\n(Floating values for Radix Sort) " );
      
@@ -187,9 +193,123 @@ public class Radix {
         System.out.print("\nNumber of operation: " +counter);
         System.out.print("\n\n----------------------------------------------------------------" );
         //Radix sort float ends--------------------------------------
-     
+        
+        
+//-------------------------------------------------------------------------------------------------------------------------------------        
+    
+        //Integer values input starts
         //Radix sort array(1 input) starts--------------------------------------
-        System.out.print("\n\n(Array with 1 input)" );
+        System.out.print("\n\n----------------------------------------------------------------" );
+        System.out.print("\n\nInteger and Floating values input" );
+        System.out.print("\n\n----------------------------------------------------------------" );
+        System.out.print("\n\n----------------------------------------------------------------" );
+        System.out.print("\n\n(Integer values for 1 input)" );
+        
+        int arry1[] = {275};
+        int m1 = arry1.length;
+        counter=1;
+     
+        System.out.print("\n\nUnsorted array: " );
+        for (int i = 0; i < m1; i++)
+            System.out.print(arry1[i] + " ");
+        System.out.print("\n" );
+        
+        //Calling function
+        counter = radixsort(arry1,m1,counter);
+        System.out.print("\n" );
+        
+        //Print output sorted int
+        System.out.print("\nSorted array: " );
+        for (int i = 0; i < m1; i++)
+            System.out.print(arry1[i] + " ");
+        System.out.print("\nNumber of input: " + m1);
+        System.out.print("\nNumber of operation: " +counter);
+        System.out.print("\n\n----------------------------------------------------------------" );
+        //Radix sort array(1 input) ends----------------------------------------
+        
+        //Radix sort array(2 input) starts--------------------------------------
+        System.out.print("\n\n(Integer values for 2 input)" );
+        
+        int arry2[] = {275,87};
+        int m2 = arry2.length;
+        counter=1;
+     
+        System.out.print("\n\nUnsorted array: " );
+        for (int i = 0; i < m2; i++)
+            System.out.print(arry2[i] + " ");
+        System.out.print("\n" );
+        
+        //Calling function
+        counter = radixsort(arry2,m2,counter);
+        System.out.print("\n" );
+        
+        //Print output sorted int
+        System.out.print("\nSorted array: " );
+        for (int i = 0; i < m2; i++)
+            System.out.print(arry2[i] + " ");
+        System.out.print("\nNumber of input: " + m2);
+        System.out.print("\nNumber of operation: " +counter);
+        System.out.print("\n\n----------------------------------------------------------------" );
+        //Radix sort array(2 input) ends----------------------------------------
+        
+        //Radix sort array(3 input) starts--------------------------------------
+        System.out.print("\n\n(Integer values for 3 input)" );
+        
+        int arry3[] = {275,87,426};
+        int m3 = arry3.length;
+        counter=1;
+     
+        System.out.print("\n\nUnsorted array: " );
+        for (int i = 0; i < m3; i++)
+            System.out.print(arry3[i] + " ");
+        System.out.print("\n" );
+        
+        //Calling function
+        counter = radixsort(arry3,m3,counter);
+        System.out.print("\n" );
+        
+        //Print output sorted int
+        System.out.print("\nSorted array: " );
+        for (int i = 0; i < m3; i++)
+            System.out.print(arry3[i] + " ");
+        System.out.print("\nNumber of input: " + m3);
+        System.out.print("\nNumber of operation: " +counter);
+        System.out.print("\n\n----------------------------------------------------------------" );
+        //Radix sort array(3 input) ends----------------------------------------
+        
+        //Radix sort array(4 input) starts--------------------------------------
+        System.out.print("\n\n(Integer values for 3 input)" );
+        
+        int arry4[] = {275,87,426,61};
+        int m4 = arry4.length;
+        counter=1;
+     
+        System.out.print("\n\nUnsorted array: " );
+        for (int i = 0; i < m4; i++)
+            System.out.print(arry4[i] + " ");
+        System.out.print("\n" );
+        
+        //Calling function
+        counter = radixsort(arry4,m4,counter);
+        System.out.print("\n" );
+        
+        //Print output sorted int
+        System.out.print("\nSorted array: " );
+        for (int i = 0; i < m4; i++)
+            System.out.print(arry4[i] + " ");
+        System.out.print("\nNumber of input: " + m4);
+        System.out.print("\nNumber of operation: " +counter);
+        System.out.print("\n\n----------------------------------------------------------------" );
+        //Radix sort array(4 input) ends----------------------------------------
+        
+        
+//-------------------------------------------------------------------------------------------------------------------------------------        
+        
+        
+        //Floating values input starts
+        //Radix sort array(1 input) starts--------------------------------------
+        System.out.print("\n\n----------------------------------------------------------------" );
+        System.out.print("\n\n(Floating values for 1 input)" );
      
         float arr3[] = {275.0f};
         int n3 = arr3.length;
@@ -213,7 +333,8 @@ public class Radix {
         //Radix sort array(1 input) ends----------------------------------------
      
         //Radix sort array(2 input) starts--------------------------------------
-        System.out.print("\n\n(Array with 2 input)" );
+        System.out.print("\n\n(Floating values for 2 input)" );
+        
         float arr4[] = {275.0f, 87.1f};
         int n4 = arr4.length;
         counter = 1;
@@ -236,7 +357,7 @@ public class Radix {
         //Radix sort array(2 input) ends----------------------------------------
         
         //Radix sort array(3 input) starts--------------------------------------
-        System.out.print("\n\n(Array with 3 input)" );
+        System.out.print("\n\n(Floating values for 3 input)" );
         float arr5[] = {275.0f, 87.1f,426.2f};
         int n5 = arr5.length;
         counter = 1;
@@ -259,7 +380,7 @@ public class Radix {
         //Radix sort array(3 input) ends----------------------------------------
      
         //Radix sort array(4 input) starts--------------------------------------
-        System.out.print("\n\n(Array with 4 input)" );
+        System.out.print("\n\n(Floating values for 4 input)" );
         float arr6[] = {275.0f,87.1f,426.2f,61.3f};
         int n6 = arr6.length;
         counter = 1;
@@ -281,5 +402,6 @@ public class Radix {
         System.out.print("\n\n----------------------------------------------------------------" );
         //Radix sort array(4 input) ends----------------------------------------
         
+        System.out.print("\n\nEND" );
     }
 }
