@@ -29,7 +29,7 @@ public class Radix {
         a[1]=mx;
     
     }
- //------------------------------------------------done-----------------------------------------------------------------------
+ 
     //countSort function to sort for each place value
     static int countSort(int arr[], int n, int exp, int counter)
     {
@@ -37,6 +37,7 @@ public class Radix {
         int i;
         int count[] = new int[10];
         Arrays.fill(count, 0);
+        counter+=1;
  
         //Store count in count[]
         for (i = 0; i < n; i++)
@@ -47,7 +48,7 @@ public class Radix {
             count[i] += count[i - 1];
             counter += 6;
 
-        for (i = n - 1; i >= 0; i--) {
+        for (i = n - 1; i >= 0; i--) { 
             output[count[(arr[i] / exp) % 10] - 1] = arr[i];
             count[(arr[i] / exp) % 10]--;
             counter +=10;
@@ -56,15 +57,17 @@ public class Radix {
         //Copy the output array to arr[]
         //arr[] now contains sorted numbers according to current digit
         for (i = 0; i < n; i++)
+        {
             arr[i] = output[i];
             counter +=1;
-            
+        }
+        counter+=3;
         for (i = 0; i < n; i++)
             System.out.print(arr[i]+" ");
      
         return counter;
     }
- 
+    //------------------------------------------------done-----------------------------------------------------------------------
     //The main function to that sorts arr[]
     //n : array size
     static int radixsort(int arr[], int n,int counter)
@@ -91,7 +94,7 @@ public class Radix {
     //---------------------------------------------------Converter starts-------------------------------------------------
     //Change array from float to integer 
     //arr2: array 2, n: array size, arri: array in integer
-    static void floattoint(float arr2[], int n, int arri[], int counter)
+    static int floattoint(float arr2[], int n, int arri[], int counter)
     {
         
         for(int i=0; i<n; i++) 
@@ -100,11 +103,12 @@ public class Radix {
             arri[i] = (int)arr2[i];
             counter +=7;
         }
+        return counter;
     }
     
     //Change array from integer to float
     //arri: array in integer, n: array size, arri: array in integer
-    static void inttofloat(int arri[], int n, float arrf[], int counter)
+    static int inttofloat(int arri[], int n, float arrf[], int counter)
     { 
         for(int i=0; i<n; i++)  
         {
@@ -113,6 +117,7 @@ public class Radix {
              counter += 7;
         }
         System.out.print("\n" );
+        return counter;
     }
     //-------------------------------------------------Converter ends-------------------------------------------------
     
@@ -156,33 +161,36 @@ public class Radix {
         System.out.print("\nSorted array: " );
         for (int i = 0; i < m; i++)
             System.out.print(arr1[i] + " ");
-        System.out.print("\nNumber of inpuut: " + m);
-        System.out.print("Number of operation: " +counter);
+        System.out.print("\nNumber of input: " + m);
+        System.out.print("\nNumber of operation: " +counter);
             System.out.print("\n\n----------------------------------------------------------------" );
         //Radix sort integer stop-------------------------------------
         
         //Radix sort float starts-------------------------------------
-        float arr3[] = {275.0f};
-        float arr4[] = {275.0f, 87.1f};
-        float arr5[] = {275.0f, 87.1f,426.2f};
-        float arr6[] = {275.0f,87.1f,426.2f,61.3f}; 
-        counter = 0;
         System.out.print("\n\n(Floating values for Radix Sort) " );
      
         float arr2[] = { 275.0f,87.1f,426.2f,61.3f,409.7f,170.0f,677.8f,503.2f };
         int n = arr2.length;
-        printUnsort(arr2, n);//Calling function for print output unsorted float
+        counter = 1;
+        
+        printUnsort(arr2, n);//print output unsorted float
         
         int arri[] = new int[n];// new array for the array in integer
-        floattoint(arr2,n,arri,counter); //Change array from float to integer
+        counter = floattoint(arr2,n,arri,counter); //Change array from float to integer
            
         System.out.print("\n" );
-        radixsort(arri, n, counter); //Sort function
+        counter = radixsort(arri, n, counter); //Sort function
         
         float arrf[] = new float[n];// new array for the array in float
-        inttofloat(arri,n,arrf,counter);//Change array from int to float
+        counter = inttofloat(arri,n,arrf,counter);//Change array from int to float
         
-        //Calling function for print output sorted float
-        printSort (arrf,n);
+        printSort (arrf,n);//Print output sorted float
+        System.out.print("\nNumber of operation: " +counter);
+        //Radix sort float ends--------------------------------------
+     
+        float arr3[] = {275.0f};
+        float arr4[] = {275.0f, 87.1f};
+        float arr5[] = {275.0f, 87.1f,426.2f};
+        float arr6[] = {275.0f,87.1f,426.2f,61.3f}; 
     }
 }
