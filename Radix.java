@@ -31,7 +31,7 @@ public class Radix {
     }
  //------------------------------------------------done-----------------------------------------------------------------------
     //countSort function to sort for each place value
-    static void countSort(int arr[], int n, int exp, int counter)
+    static int countSort(int arr[], int n, int exp, int counter)
     {
         int output[] = new int[n]; //Output array
         int i;
@@ -61,11 +61,13 @@ public class Radix {
             
         for (i = 0; i < n; i++)
             System.out.print(arr[i]+" ");
+     
+        return counter;
     }
  
     //The main function to that sorts arr[]
     //n : array size
-    static void radixsort(int arr[], int n,int counter)
+    static int radixsort(int arr[], int n,int counter)
     {
         //Find maximum value in an array
         int a[] = new int[2];
@@ -80,9 +82,10 @@ public class Radix {
         for (int exp = 1; m / exp > 0; exp *= 10 )
         {
             System.out.print("\nPass at place value " + exp + ": ");
-            countSort(arr, n, exp,counter);
-            counter ++;
+            counter = countSort(arr, n, exp,counter) +1 ;
         }
+     
+        return counter;
     }
     
     //---------------------------------------------------Converter starts-------------------------------------------------
@@ -137,20 +140,24 @@ public class Radix {
         //Radix sort integer start-------------------------------------
         int arr1[] = {275, 87, 426, 61, 409, 170, 677, 503};
         int m = arr1.length;
+        int counter=1;
+     
         System.out.print("(Integer for Radix Sort) " );
         System.out.print("\n\nUnsorted array: " );
         for (int i = 0; i < m; i++)
             System.out.print(arr1[i] + " ");
         System.out.print("\n" );
-        int counter=1;
+        
         //Calling function
-        radixsort(arr1,m,counter);
+        counter = radixsort(arr1,m,counter);
         System.out.print("\n" );
         
         //Print output sorted int
         System.out.print("\nSorted array: " );
         for (int i = 0; i < m; i++)
             System.out.print(arr1[i] + " ");
+        System.out.print("\nNumber of inpuut: " + m);
+        System.out.print("Number of operation: " +counter);
             System.out.print("\n\n----------------------------------------------------------------" );
         //Radix sort integer stop-------------------------------------
         
