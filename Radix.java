@@ -55,7 +55,6 @@ public class Radix {
         }
  
         //Copy the output array to arr[]
-        //arr[] now contains sorted numbers according to current digit
         for (i = 0; i < n; i++)
         {
             arr[i] = output[i];
@@ -93,14 +92,14 @@ public class Radix {
     
     //---------------------------------------------------Converter starts-------------------------------------------------
     //Change array from float to integer 
-    //arr2: array 2, n: array size, arri: array in integer
-    static int floattoint(float arr2[], int n, int arri[], int counter)
+    //arr2: array, n: array size, arri: array in integer
+    static int floattoint(float arr[], int n, int arri[], int counter)
     {
         
         for(int i=0; i<n; i++) 
         {
-            arr2[i] = arr2[i]*10;
-            arri[i] = (int)arr2[i];
+            arr[i] = arr[i]*10;
+            arri[i] = (int)arr[i];
             counter +=7;
         }
         return counter;
